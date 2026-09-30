@@ -60,16 +60,5 @@ new reports are scored and saved in `backend/reports.db`. Interactive API docs: 
 
 ## Team ownership
 
-| Folder | Owner |
-|--------|-------|
-| `frontend/` | [Name] |
-| `backend/` | [Name] |
-| `ml/` | [Name] |
-
 Work on your own branch, open a pull request, get one review, then merge. See `docs/TASKS.md`.
 
-## Status
-
-Prototype. Sample data is built in, and the IMD advisory feed is simulated (`ml/data.py`).
-The scoring in `ml/score.py` and `frontend/js/scoring.js` gives identical results; if you change
-one, change the other.
