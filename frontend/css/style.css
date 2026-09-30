@@ -1,0 +1,56 @@
+:root{--bg:#eef3f5;--panel:#fff;--ink:#14232b;--mute:#5d707a;--line:#d6e0e4;--ok:#1f8a5b;--warn:#c98a0a;--bad:#c63d3d;--acc:#0b6b8a;--land:#dfe9ed;--sea:#f7fafb;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d171c;--panel:#14232b;--ink:#e6eef1;--mute:#93a7b0;--line:#26404b;--ok:#3bbf88;--warn:#e3a72f;--bad:#ef6a6a;--acc:#4cb5d6;--land:#1d3340;--sea:#10202a}}
+:root[data-theme="dark"]{--bg:#0d171c;--panel:#14232b;--ink:#e6eef1;--mute:#93a7b0;--line:#26404b;--ok:#3bbf88;--warn:#e3a72f;--bad:#ef6a6a;--acc:#4cb5d6;--land:#1d3340;--sea:#10202a}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Public Sans',system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.45}
+.wrap{max-width:1180px;margin:0 auto;padding:18px 16px 32px}
+header{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;justify-content:space-between;margin-bottom:14px}
+h1{font-size:clamp(1.4rem,3.4vw,2rem);font-weight:800;margin:0;letter-spacing:-.02em}
+.sub{color:var(--mute);font-size:.9rem;margin:2px 0 0}
+.stats{display:flex;gap:8px;flex-wrap:wrap}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:6px 12px;min-width:84px}
+.stat b{display:block;font-size:1.3rem;line-height:1.1}
+.stat span{font-size:.78rem;color:var(--mute)}
+.alerts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.alert{background:var(--panel);border:1px solid var(--line);border-left:5px solid var(--bad);border-radius:8px;padding:8px 12px;font-size:.88rem}
+.alert small{display:block;color:var(--mute)}
+.alert.none{border-left-color:var(--line);color:var(--mute)}
+.grid{display:grid;grid-template-columns:1.05fr .95fr;gap:14px}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px}
+.card h2{font-size:1rem;margin:0 0 10px;font-weight:600}
+svg{width:100%;height:auto;display:block;background:var(--sea);border-radius:8px}
+.land{fill:var(--land);stroke:var(--line);stroke-width:1.5}
+.pin{cursor:pointer}
+.pin circle{stroke:var(--panel);stroke-width:2}
+.pin text{font-size:10px;font-weight:800;fill:#fff;text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.pin.sel circle{stroke:var(--ink);stroke-width:3}
+.legend{font-size:.8rem;color:var(--mute);margin-top:8px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+select,textarea,button{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:7px 9px}
+select{flex:1;min-width:120px}
+textarea{width:100%;min-height:70px;resize:vertical}
+button{cursor:pointer;background:var(--acc);color:#fff;border-color:var(--acc);font-weight:600}
+button.ghost{background:transparent;color:var(--acc)}
+button:focus-visible,select:focus-visible,textarea:focus-visible,.item:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.list{max-height:300px;overflow:auto;border:1px solid var(--line);border-radius:8px}
+.item{display:flex;gap:10px;padding:9px 10px;border-bottom:1px solid var(--line);cursor:pointer}
+.item:last-child{border-bottom:0}
+.item.sel{background:var(--bg)}
+.dot{flex:none;width:12px;height:12px;border-radius:50%;margin-top:5px}
+.item p{margin:0;font-size:.88rem}
+.item small{color:var(--mute)}
+.detail{margin-top:12px;font-size:.9rem}
+.bar{height:10px;background:var(--line);border-radius:6px;overflow:hidden;margin:6px 0 8px}
+.bar i{display:block;height:100%}
+.tag{display:inline-block;font-size:.78rem;font-weight:600;padding:2px 8px;border-radius:999px;color:#fff}
+.reasons{list-style:none;margin:8px 0 0;padding:0;font-size:.85rem}
+.reasons li{display:flex;justify-content:space-between;gap:10px;padding:3px 0;border-bottom:1px dashed var(--line)}
+.plus{color:var(--ok);font-weight:600}.minus{color:var(--bad);font-weight:600}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.trace{margin-top:10px;font-size:.85rem;min-height:20px}
+.trace div{padding:3px 0}
+.trace b{color:var(--acc)}
+.note{color:var(--mute);font-size:.8rem;margin-top:14px}
+@media(prefers-reduced-motion:no-preference){.bar i{transition:width .5s}}

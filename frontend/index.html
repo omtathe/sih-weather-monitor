@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Weather Ground-Truth Monitor</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div>
+    <h1>Weather Ground-Truth Monitor</h1>
+    <p class="sub">Citizen reports, checked and placed on the map. SIH 2026, PS 26069.</p>
+  </div>
+  <div class="stats" id="stats"></div>
+</header>
+<div class="alerts" id="alerts"></div>
+<div class="grid">
+  <div>
+    <div class="card">
+      <h2>Live map of verified and unverified reports</h2>
+      <svg id="map" viewBox="0 0 520 520" role="img" aria-label="Map of India with report pins"></svg>
+      <div class="legend">Pin letter: F flood, C cloudburst, L landslide, H hail, T heatwave, R heavy rain, Y cyclone. Pin color: green verified, amber suspicious, red fake.</div>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <h2>Check a new report</h2>
+      <textarea id="in" placeholder="Paste a post, for example: Heavy flooding in Pune near Swargate, roads blocked"></textarea>
+      <div class="row">
+        <select id="src"><option>X</option><option>Instagram</option><option>YouTube</option><option>Facebook</option><option>Reddit</option><option>News RSS</option></select>
+        <select id="acct"><option value="900">Established account</option><option value="6">New account (6 days)</option></select>
+        <select id="med"><option value="0">No photo</option><option value="1">Photo attached</option><option value="m1">Photo reused from earlier post</option></select>
+      </div>
+      <div class="row">
+        <button id="go">Check report</button>
+        <button class="ghost" id="ex1">Load a real-looking example</button>
+        <button class="ghost" id="ex2">Load a fake-looking example</button>
+      </div>
+      <div class="trace" id="trace"></div>
+    </div>
+  </div>
+  <div class="card">
+    <h2>Reports</h2>
+    <div class="filters">
+      <select id="fe" aria-label="Event type"><option value="">All events</option></select>
+      <select id="fl" aria-label="Credibility"><option value="">All credibility</option><option>Verified</option><option>Suspicious</option><option>Fake</option></select>
+    </div>
+    <div class="list" id="list"></div>
+    <div class="detail" id="detail">Select a report to see why it got its score.</div>
+  </div>
+</div>
+<p class="note" id="mode"></p>
+<p class="note">Prototype with sample data. The pipeline steps (collect, extract, verify, store) run in your browser; the real build runs them on FastAPI, a database and a Hugging Face model. The IMD advisory feed is simulated.</p>
+</div>
+<script src="js/config.js"></script>
+<script src="js/data.js"></script>
+<script src="js/scoring.js"></script>
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
